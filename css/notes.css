@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family:  'Orbitron', sans-serif;
+    text-align: center;
+}
+
+body{
+    margin-top: 5rem;
+    border: 7px solid rgb(15, 5, 80);
+}
+
+li{
+    list-style-type: none;
+}
+
+main{
+    max-width: 50rem;
+    margin: 0 auto;
+    border: 10px solid rgb(194, 63, 7);
+}
