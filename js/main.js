@@ -20,12 +20,12 @@ const links = [
 ];
 
 //this gets the assignments id from the html
-var ol = document.getElementById("assignments");
+ ol = document.getElementById("assignments");
 
 //this will create a loop to create the li and a elements
-for (var i = 0; i < links.length; i++) {
-    var li = document.createElement("li");
-    var a = document.createElement("a");
+for ( i = 0; i < links.length; i++) {
+     li = document.createElement("li");
+     a = document.createElement("a");
     
     //these reference the array above for info
     a.href = links[i].url;
@@ -35,7 +35,7 @@ for (var i = 0; i < links.length; i++) {
     //these will append and place the a inside the li and the li inside the ol
     li.appendChild(a);
     ol.appendChild(li);
- };
+ }
 
  //this is my array which I will update every week with a label and url
 const g_work = [
@@ -55,16 +55,16 @@ const g_work = [
 ];
 
 //this gets the assignments id from the html
-var ol = document.getElementById("groups");
+ ol = document.getElementById("groups");
 
 //this will create a loop to create the li and a elements
-for (var i = 0; i < links.length; i++) {
-    var li = document.createElement("li");
-    var a = document.createElement("a");
+for (i = 0; i < g_work.length; i++) {
+     li = document.createElement("li");
+     a = document.createElement("a");
     
     //these reference the array above for info
-    a.href = links[i].url;
-    a.innerHTML = links[i].label;
+    a.href = g_work[i].url;
+    a.innerHTML = g_work[i].label;
     a.target="_blank";
     
     //these will append and place the a inside the li and the li inside the ol

@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family:  'Orbitron', sans-serif;
+    text-align: center;
+}
+
+body{
+    margin-top: 5rem;
+    border: 7px solid rgb(15, 5, 80);
+}
+
+li{
+    list-style-type: none;
+}
+
+input{
+    background-color:  rgb(220, 92, 38);
+    color: whitesmoke;
+}
+
+main{
+    max-width: 50rem;
+    margin: 0 auto;
+    border: 10px solid rgb(194, 63, 7);
+}
+
+.display{
+    width: 10rem;
+    height: 5rem;
+    border: 5px solid black;
+    background-color:  rgba(220, 93, 38, 0.52);
+    color: whitesmoke;
+}
