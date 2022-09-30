@@ -16,6 +16,34 @@ const links = [
         label: "Week 3 Notes",
         url: "html/week3.html"
     },
+    {
+        label: "Week 4 Notes",
+        url: "html/week4.html"
+    },
+    {
+        label: "Week 5 Notes",
+        url: "html/week5.html"
+    },
+    {
+        label: "Week 6 Notes",
+        url: "html/week6.html"
+    },
+    {
+        label: "Week 7 Notes",
+        url: "html/week7.html"
+    },
+    {
+        label: "Week 8 Notes",
+        url: "html/week8.html"
+    },
+    {
+        label: "Week 9 Notes",
+        url: "html/week9.html"
+    },
+    {
+        label: "Week 10 Notes",
+        url: "html/week10.html"
+    },
 
 ];
 
