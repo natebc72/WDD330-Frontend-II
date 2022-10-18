@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    background-color: #e1e3ea;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    height: 100vh;
+    font-family:  'Orbitron', sans-serif;
+    text-align: center;
+}
+
+.todo {
+    width: 60%;
+    padding: 10px;
+}
+
+.todo h1 {
+    color: white;
+    font-size: 40px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #e42c07f7;
+}
+
+.todo form {
+    display: flex;
+    width: 100%;
+    background-color: #262e4c;
+}
+
+.todo form input {
+    border: none;
+    background-color: #3c4979;
+    color: white;
+    padding: 5px;
+    width: 85%;
+}
+
+.todo form button {
+    border: none;
+    color: white;
+    background-color: black;
+    height: 50px;
+    width: 10%;
+}
+
+.todo ul {
+    list-style: none;
+    color: whitesmoke;
+    padding: 0;
+}
+
+.todo ul li {
+    padding: 10px;
+    background-color: #262e4c;
+    border-bottom: 1px solid #3a4674;
+}
+
+.check {
+    width: 0.8em;
+    height: 0.8em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.check:checked {
+    background-color: #d23e1d;
+}
+
+.task {
+    padding: 0 10px;
+    width: fit-content;
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+
+.task:focus {
+    outline: none;
+}
+
+.todo ul li i {
+    float: right;
+    cursor:crosshair;
+}
+
+.todo ul li i:hover {
+    color: rgb(195, 102, 35);
+}
+
+.completed {
+    color: rgba(240, 226, 226, 0.8);
+    text-decoration: line-through;
+}
