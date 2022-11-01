@@ -29,7 +29,7 @@ function showTodo(filter) {
             }
         });
     }
-    taskBox.innerHTML = li || `<span> You don't have any tasks in this section right now</span>`;
+    taskBox.innerHTML = li || `<span><em>You don't have any tasks in this section right now</em></span>`;
 }
  showTodo("all");
 
