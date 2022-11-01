@@ -1,35 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> To-Do List ~ Nate Christiansen ~ </title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<html lang = "en">
+    <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>My To-Do List</title> 
+       <link rel="stylesheet" href="./style.css">
+       <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    </head>
 
-</head>
+    <body>
+        <div class="wrapper">
 
-<body>
-  <main class="container">
-    <div class="todo">
-      <h1>My To-Do List ✓ </h1>
+            <div class="title">
+                <h1><u>My To-Do List ✓</u></h1>
+            </div>
 
-      <ul></ul>
-      
+            <ul class="task-box"></ul>
 
-    </div>
+            <div class="controls">
+                <div class="filters">
+                    <span id="all" class="active">All Tasks</span>
+                    <span id="completed" class="">Completed</span>
+                    <span id="pending" class="">Not Completed</span>
+                </div>
 
-  <footer>
-    <form class="add" alt="add_task">
-      <input type="text" placeholder="Add a new task ⬅️">
-      <button type="submit"> Add Me!</button>
-    </form>
+            </div>
+            
+        </div>
+
+    </body>
+    <footer>
+        <div class="task-input">
+            <input type="text" placeholder="Add a task here..➡️">
+        </div>
     </footer>
-  </main>
-  <script src="todo.js"></script>
-</body>
-
+    <script src="todo.js"></script>
 </html>

@@ -1,108 +1,97 @@
-* {
+*{
     margin: 0;
-    background-color: #e1e3ea;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    height: 100vh;
-    font-family:  'Orbitron', sans-serif;
-    text-align: center;
-}
-
-.todo {
-    width: 60%;
-    padding: 10px;
-}
-
-.todo h1 {
-    color: white;
-    font-size: 40px;
-    padding: 10px 0;
-    text-align: center;
-    background-color: #e42c07f7;
-}
-
-.todo ul {
-    list-style: none;
-    color: whitesmoke;
     padding: 0;
+    font-family:  'Orbitron', sans-serif;
+    box-sizing: border-box;
 }
 
-.todo ul li {
-    padding: 10px;
-    background-color: #262e4c;
-    border-bottom: 1px solid #3a4674;
-}
-
-.check {
-    width: 0.8em;
-    height: 0.8em;
-    cursor: pointer;
-    border-radius: 50%;
+body{
     background-color: whitesmoke;
-    border: 1px solid rgb(255, 255, 255);
 }
 
-.check:checked {
-    background-color: #d23e1d;
+.wrapper{
+    background-color: rgb(57, 82, 224);
+    max-width: 500px;
+    margin: 3rem auto;
+    border-radius: 10px;
 }
 
-.task {
-    padding: 0 10px;
-    width: fit-content;
-    background: transparent;
-    border: none;
-    color: #fff;
+.title{
+    background-color: rgb(194, 63, 7);
+    text-align: center;
+    color: whitesmoke;
+    
 }
 
-.task:focus {
+.task-input{
+    height: 50px;
+    padding: 0 30px;
+}
+
+.task-input input{
+    height: 100%;
+    width: 100%;
     outline: none;
+    border-radius: 4px;
+    border: 2px solid rgb(64, 63, 63);
+    padding: 0 20px 0 55px;
 }
 
-.todo ul li i {
-    float: right;
-    cursor:crosshair;
+.controls{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    padding: 20px 25px;
+    border-top: 3px dashed white;
+    
 }
 
-.todo ul li i:hover {
-    color: rgb(195, 102, 35);
+.controls, li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.completed {
-    color: rgba(240, 226, 226, 0.8);
+.filters span{
+    margin:0 8px;
+}
+
+.filters span.active{
+    color: whitesmoke;
+}
+
+.filters span:first-child{
+    margin-left: 0;
+}
+
+.task-box{
+    margin: 20px 25px;
+    color: white;
+}
+
+.task-box .task{
+    list-style: none;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.task-box .task:last-child{
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.task label{
+    display: flex;
+}
+
+.task label p.checked{
     text-decoration: line-through;
 }
 
-.selector{
-    display: flex;
-    flex-direction: row;
-    background-color: #3c4979;
-    color: whitesmoke;
-}
-
-.add form {
-    display: flex;
-    width: 100%;
-    background-color: #262e4c;
-}
-
-.add form input {
-    border: none;
-    background-color: #3c4979;
-    color: white;
-    font-weight: 700;
-    padding: 2px;
-    width: 90%;
-}
-
-.add form button {
-    border: none;
-    color: white;
-    background-color: black;
-    height: 50px;
-    width: 10%;
+.task label input{
+    margin-top: 5px;
+    margin-right: 20px;
 }

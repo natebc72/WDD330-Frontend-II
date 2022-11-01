@@ -1,112 +1,66 @@
-    //Once the window loads, so do the tasks
-    window.onload = loadtasks;
+const taskInput = document.querySelector(".task-input input"),
+filters = document.querySelectorAll(".filters span"),
+taskBox = document.querySelector(".task-box");
 
-    // On submit a task is added
-    document.querySelector("form").addEventListener("submit", e => {
-      e.preventDefault();
-      addtask();
+//getting localStorage todo list
+let todos = JSON.parse(localStorage.getItem("todo-list"));
+
+filters.forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelector("span.active").classList.remove("active");
+        btn.classList.add("active");
+        showTodo(btn.id);
     });
+});
 
-    function loadtasks() {
-      // check if localStorage has any tasks
-      // if not then return
-      if (localStorage.getItem("tasks") == null) return;
-
-      // Gets the tasks from localStorage and converts it to an array
-      let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-
-      // Loops through the tasks and adds them to the list
-      tasks.forEach(task => {
-        const list = document.querySelector("ul");
-        const li = document.createElement("li");
-        li.innerHTML = `<input type="checkbox" onclick="taskComplete(this)" class="check" ${task.completed ? 'checked' : ''}>
-          <input type="text" value="${task.task}" class="task ${task.completed ? 'completed' : ''}" onfocus="getCurrenttask(this)" onblur="edittask(this)">
-          <i class="fa fa-trash" onclick="removetask(this)"></i>`;
-        list.insertBefore(li, list.children[0]);
-      });
+function showTodo(filter) {
+    let li = "";
+    if(todos){
+        todos.forEach((todo, id) => {
+            let isCompleted = todo.status == "completed" ? "checked" : "";
+            if(filter == todo.status || filter =="all") {
+            li += `<li class="task">
+                    <label for="${id}">
+                        <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${isCompleted}>
+                        <p class="${isCompleted}">${todo.name}</p>
+                    </label>
+                    <input type="button" onclick="deleteTask(${id})" class="delete" value="❌">
+                    </li>`;
+            }
+        });
     }
+    taskBox.innerHTML = li || `<span> You don't have any tasks in this section right now</span>`;
+}
+ showTodo("all");
 
-    function addtask() {
-      const task = document.querySelector("form input");
-      const list = document.querySelector("ul");
-      // return if task is empty
-      if (task.value === "") {
-        alert("Please add a task good sir!");
-        return false;
-      }
-      // check is task already exist
-      if (document.querySelector(`input[value="${task.value}"]`)) {
-        alert("You already thought of this Task, please add another!");
-        return false; 
-      }
+ function deleteTask(deleteId) {
+    todos.splice(deleteId, 1);
+    localStorage.setItem("todo-list", JSON.stringify(todos));
+    showTodo();
+ }
 
-      // add task to local storage
-      localStorage.setItem("tasks", JSON.stringify([...JSON.parse(localStorage.getItem("tasks") || "[]"), { task: task.value, completed: false }]));
-
-      // create list item, add innerHTML and append to ul
-      const li = document.createElement("li");
-      li.innerHTML = `<input type="checkbox" onclick="taskComplete(this)" class="check">
-      <input type="text" value="${task.value}" class="task" onfocus="getCurrenttask(this)" onblur="edittask(this)">
-      <i class="fa fa-trash" onclick="removetask(this)"></i>`;
-      list.insertBefore(li, list.children[0]);
-      // clear input
-      task.value = "";
+function updateStatus(selectTask){
+    let taskName = selectTask.parentElement.lastElementChild;
+    if(selectTask.checked) {
+        taskName.classList.add("checked");
+        todos[selectTask.id].status ="completed";
+    } else{
+        taskName.classList.remove("checked");
+        todos[selectTask.id].status ="pending";
     }
+    localStorage.setItem("todo-list", JSON.stringify(todos));
+}
 
-    function taskComplete(event) {
-      let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-      tasks.forEach(task => {
-        if (task.task === event.nextElementSibling.value) {
-          task.completed = !task.completed;
+taskInput.addEventListener("keyup", e => {
+    let userTask = taskInput.value.trim();
+    if(e.key == "Enter" && userTask) {
+        if(!todos) { //if a task doesn't exist, an empty array will be passed
+            todos = [];
         }
-      });
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-      event.nextElementSibling.classList.toggle("completed");
+        taskInput.value = "";
+        let taskInfo = {name: userTask, status: "pending"};
+        todos.push(taskInfo); //this will add new task to todos
+        localStorage.setItem("todo-list", JSON.stringify(todos));
+        showTodo();
     }
-
-    function removetask(event) {
-      let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-      tasks.forEach(task => {
-        if (task.task === event.parentNode.children[1].value) {
-          // delete task
-          tasks.splice(tasks.indexOf(task), 1);
-        }
-      });
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-      event.parentElement.remove();
-    }
-
-    // store current task to track changes
-    var currenttask = null;
-
-    // get current task
-    function getCurrenttask(event) {
-      currenttask = event.value;
-    }
-
-    // edit the task and update local storage
-    function edittask(event) {
-      let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-      // check if task is empty
-      if (event.value === "") {
-        alert("task is empty!");
-        event.value = currenttask;
-        return;
-      }
-      // task already exist
-      tasks.forEach(task => {
-        if (task.task === event.value) {
-          alert("task already exist!");
-          event.value = currenttask;
-          return;
-        }
-      });
-      // update task
-      tasks.forEach(task => {
-        if (task.task === currenttask) {
-          task.task = event.value;
-        }
-      });
-      // update local storage
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
+})
