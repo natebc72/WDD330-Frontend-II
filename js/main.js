@@ -79,6 +79,38 @@ const g_work = [
         label: "Week 3 Group",
         url: "z_group_work/week3/week3.html"
     },
+    {
+        label: "Week 4 Group",
+        url: "z_group_work/week4/week4.html"
+    },
+    {
+        label: "Week 5 Group",
+        url: "z_group_work/week5/week5.html"
+    },
+    {
+        label: "Week 7 Group",
+        url: "z_group_work/week7/week7.html"
+    },
+    {
+        label: "Week 8 Group",
+        url: "z_group_work/week8/week8.html"
+    },
+    {
+        label: "Week 9 Group",
+        url: "z_group_work/week9/week9.html"
+    },
+    {
+        label: "Week 10 Group",
+        url: "z_group_work/week10/week10.html"
+    },
+    {
+        label: "Week 11 Group",
+        url: "z_group_work/week11/week11.html"
+    },
+    {
+        label: "Week 12 Group",
+        url: "z_group_work/week12/week12.html"
+    },
 
 ];
 
