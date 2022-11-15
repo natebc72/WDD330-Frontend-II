@@ -23,3 +23,7 @@ main{
     margin: 0 auto;
     border: 10px solid rgb(194, 63, 7);
 }
+
+img{
+    width: 50%;
+}
