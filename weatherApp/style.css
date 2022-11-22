@@ -19,11 +19,13 @@ body{
 }
 
 .banner{
+    font-size: 12px;
     display: inline-block;
     grid-column: 1/4;
     grid-row: 1;
     text-align: center;
     color: #F0E32D;
+    margin-bottom: .6em;
 }
 
 .banner img{
@@ -50,6 +52,7 @@ body{
     background-color: #E0DAF1;
     color: #150E25;
     width: 75%;
+    font-size: 8px;
 }
 
 .bar:focus{
@@ -72,10 +75,23 @@ body{
     text-align: center;
 }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 700px){
 
     body{
         grid-template-rows: 100px 100px auto; 
+    }
+
+    .banner{
+        font-size: 20px;
+    }
+
+    .search{
+        margin-top: .5em;
+        font-size: 17px;
+    }
+
+    .bar{
+        font-size: 13px;
     }
 
     .footer{
