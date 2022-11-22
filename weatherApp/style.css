@@ -43,6 +43,19 @@ body{
     border-radius: 10px;
 }
 
+.bar{
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    background-color: #E0DAF1;
+    color: #150E25;
+    width: 75%;
+}
+
+.bar:focus{
+    outline: none;
+}
+
 .cards{
     grid-row: 3;
     display: flex;
