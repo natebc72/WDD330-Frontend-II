@@ -36,36 +36,36 @@ async function hitAPI() {
         const fFeels = weatherData[0].main.feels_like 
         const fHigh = weatherData[0].main.temp_max 
         const fMin = weatherData[0].main.temp_min 
-        const fConditions = weatherData[0].weather[0].main 
+        const fType = weatherData[0].weather[0].main 
         const fWind = weatherData[0].wind.speed 
 
-        render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind) 
+        render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) 
     } catch (error) {
         console.error(error);
         document.querySelector('.location').innerText = 'Your lenses must be foggy!'
         document.querySelector('.temp').innerText = ''
-        document.querySelector('.conditions').innerText = 'Rechecketh thy spelling!'
+        document.querySelector('.type').innerText = 'Rechecketh thy spelling!'
 
     }
 }
 
-function render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind) {
+function render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) {
     // display information
     const location = document.querySelector('.location')
     const temp = document.querySelector('.temp')
-    const conditions = document.querySelector('.conditions')
+    const type = document.querySelector('.type')
     const feelsLike = document.querySelector('.real')
     const highTemp = document.querySelector('.high-temp')
     const minTemp = document.querySelector('.min-temp')
     const wind = document.querySelector('.wind')
     
     location.innerText = fLocation
-    conditions.innerText = fConditions
-    wind.innerText = `Wind: ${Math.round(fWind)}mph`
-    temp.innerText = `${Math.round(fTemp)}°F` 
-    feelsLike.innerText = `Feels like: ${Math.round(fFeels)}°F`
-    highTemp.innerText = `High: ${Math.round(fHigh)}°F`
-    minTemp.innerText = `Low: ${Math.round(fMin)}°F` 
+    type.innerHTML = `<u>${fType} Conditions</u>`
+    wind.innerHTML = `<strong>Wind Speed:</strong> <u>${Math.round(fWind)}mph</u>`
+    temp.innerHTML = `<em>${Math.round(fTemp)}°F</em>` 
+    feelsLike.innerHTML = `<strong>Feels like:</strong> <u>${Math.round(fFeels)}°F</u>`
+    highTemp.innerHTML = `<strong>Daily High:</strong> <u>${Math.round(fHigh)}°F</u>`
+    minTemp.innerHTML = `<strong>Daily Low:</strong> <u>${Math.round(fMin)}°F</u>` 
     save()
 }
 
