@@ -42,9 +42,14 @@ async function hitAPI() {
         render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) 
     } catch (error) {
         console.error(error);
-        document.querySelector('.location').innerText = 'Your lenses must be foggy!'
-        document.querySelector('.temp').innerText = ''
-        document.querySelector('.type').innerText = 'Rechecketh thy spelling!'
+        document.querySelector('.location').innerHTML = '<em>Your lenses must be foggy!</em>'
+        document.querySelector('.temp').innerHTML = 'o_O'
+        document.querySelector('.type').innerHTML = '<strong>Rechecketh thy spelling!</strong>'
+        document.querySelector('.real').innerHTML = '<strong>?</strong>'
+        document.querySelector('.wind').innerHTML = '<strong>?</strong>'
+        document.querySelector('.high-temp').innerHTML = '<strong>?</strong>'
+        document.querySelector('.low-temp').innerHTML = '<strong>?</strong>'
+
 
     }
 }
@@ -56,7 +61,7 @@ function render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) {
     const type = document.querySelector('.type')
     const feelsLike = document.querySelector('.real')
     const highTemp = document.querySelector('.high-temp')
-    const minTemp = document.querySelector('.min-temp')
+    const minTemp = document.querySelector('.low-temp')
     const wind = document.querySelector('.wind')
     
     location.innerText = fLocation
