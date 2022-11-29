@@ -15,7 +15,7 @@ body{
     margin-top: 5em;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px 200px auto;
+    grid-template-rows: .2fr .4fr .2fr .1fr;
 }
 
 .banner{
@@ -24,7 +24,11 @@ body{
     grid-column: 1/4;
     grid-row: 1;
     text-align: center;
-    color: #F0E32D;
+    color: #6644BB;
+    text-shadow: -1px 1px 0 #F0E32D,
+				 1px 1px 0 #F0E32D,
+				 1px -1px 0 #F0E32D,
+				-1px -1px 0 #F0E32D;
     margin-bottom: .6em;
 }
 
@@ -43,6 +47,14 @@ body{
     background-color: #E0DAF1;
     border:3px solid #DBCE0F;
     border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.update{
+    border-radius: 8px;
+    border-color: #DBCE0F;
+    background-color: #8469C9;
+    height: 80%;
 }
 
 .bar{
@@ -59,9 +71,29 @@ body{
     outline: none;
 }
 
-.cards{
+.data{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column: 2;
     grid-row: 3;
-    display: flex;
+    background-color: #E0DAF1;
+    margin-top: 3em;
+    border:3px solid #DBCE0F;
+}
+
+.m-info{
+    grid-row: 1;
+    text-align: center;
+}
+
+.additional{
+    padding: 3px;
+    grid-row: 2;
+    font-size: 9px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 
@@ -86,7 +118,6 @@ body{
     }
 
     .search{
-        margin-top: .5em;
         font-size: 17px;
     }
 
@@ -96,5 +127,9 @@ body{
 
     .footer{
         font-size: 28px;
+    }
+
+    .additional{
+        font-size: 20px;
     }
 }
