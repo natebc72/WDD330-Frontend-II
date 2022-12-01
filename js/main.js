@@ -68,10 +68,6 @@ for ( i = 0; i < links.length; i++) {
  //this is my array which I will update every week with a label and url
 const g_work = [
     {
-        label: "Week 1 Group",
-        url: "z_group_work/week1/week1.html"
-    },
-    {
         label: "Week 2 Group",
         url: "z_group_work/week2/week2.html"
     },
