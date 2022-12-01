@@ -117,6 +117,7 @@ body{
 .card{
     display: flex;
     flex-direction: column;
+    position: relative;
     max-width: 100px;
     background-color: #513696;
     color: #150E25;
@@ -127,9 +128,23 @@ body{
     border: 2px solid #DBCE0F;
 }
 
+.delete{
+    position: absolute;
+    top: 2px;
+    right: 1.5px;
+    font-size: 10px;
+    max-width: 12px;
+    background-color: #150E25;
+    color: #E0DAF1;
+}
+
 .card hr{
     border-bottom: 2px solid;
     border-color: #DBCE0F;
+}
+
+.card h1{
+    padding-right: -4px;
 }
 
 
@@ -177,6 +192,10 @@ footer{
     .card{
         max-width: 200px;
         margin-bottom: 3em;
+    }
+    .delete{
+        top: 5px;
+        right: 5px;
     }
 
     .card h1{

@@ -13,6 +13,8 @@ const addCity = (ev)=> {
     buildCards(city)
 }
 
+function deleteCity() {}
+
 document.querySelector('.save').addEventListener('click', addCity)
 
 async function buildCards() {   

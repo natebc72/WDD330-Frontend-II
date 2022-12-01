@@ -5,8 +5,7 @@ input = localStorage.quickCity || 'Tucson'
 
 window.addEventListener('load', () => {
     quickCity() && savedCities()
-
-  });
+});
 
 
   document.querySelector('.submit').addEventListener('click', (e) => {
