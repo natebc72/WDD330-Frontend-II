@@ -24,6 +24,7 @@ async function buildCards() {
         const sType = weatherData[0].weather[0].main
         
         let card = document.createElement('section');
+        let btn = document.createElement('button')
         let hr = document.createElement('hr');
         let h1 = document.createElement('h1');
         let h2 = document.createElement('h2');
@@ -31,12 +32,15 @@ async function buildCards() {
         
 
         h1.textContent = `${sLocation}`;
+        btn.textContent = `☠`;
         h2.textContent = `${Math.round(sTemp)}°F`;
         h3.textContent = `${sType}`;
 
         card.setAttribute('class','card')
+        btn.setAttribute('class', 'delete')
 
         card.appendChild(h1);
+        card.appendChild(btn);
         card.appendChild(hr);
         card.appendChild(h2);
         card.appendChild(h3);
