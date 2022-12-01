@@ -1,35 +1,36 @@
-let input = localStorage.userLocation
-let apiKey = 'c15692945feb10ef84b935367d724b0b'
+let key = 'c15692945feb10ef84b935367d724b0b'
+let url = 'https://api.openweathermap.org/data/2.5/weather?q='
+input = localStorage.quickCity || 'Tucson'
 
-function userLocation() {
-        input = localStorage.userLocation
-        hitAPI()
-    }
 
 window.addEventListener('load', () => {
-    userLocation()
+    quickCity() && savedCities()
+
   });
+
 
   document.querySelector('.submit').addEventListener('click', (e) => {
     e.preventDefault()
     document.querySelector('.location').innerText = 'Spoting...'
     input = document.querySelector('.bar').value
-    document.querySelector('#form').reset()
-    hitAPI(input)
+    quickSearch(input)
 })
 
 function save() {
-    localStorage.userLocation = input
-  }
+    localStorage.quickCity = input
+}
+
+function quickCity() {
+    input = localStorage.quickCity
+    quickSearch()
+}
   
-async function hitAPI() {
+async function quickSearch() {   
     try {    
-        const response = await Promise.all([
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=imperial&appid=${apiKey}`),
+        const response = await Promise.all([fetch(`${url}${input}&units=imperial&appid=${key}`),
         ]);
         const weatherData = await Promise.all(response.map(r => r.json()))
 
-        console.log(weatherData[0])
         const fLocation = weatherData[0].name 
         const fTemp = weatherData[0].main.temp 
 
@@ -74,7 +75,7 @@ function render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) {
     save()
 }
 
-hitAPI()
+quickSearch()
 
 
     

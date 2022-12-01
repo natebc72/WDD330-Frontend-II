@@ -25,29 +25,39 @@
                 <hr>
                 <br>
                 <input class="bar" type="search" name="scout" required placeholder="Scout the Lands...">
-                <button class="submit" type="submit"><img src="search.png"></button>
+                <button class="submit" id="update" type="submit"><img src="search.png"></button>
             </form>
         </div>
 
         <div class="data">
-            <div class="m-info">
+            <section class="m-info">
                 <h1 class="location"></h1>
 
                 <h2 class="temp"></h2>
 
                 <h3 class="type"></h3>
-            </div>
+            
+                <hr>
 
-            <div class="additional">
-                <div class="real"></div>
+                <p class="real"></p>
 
-                <div class="wind"></div>
+                <p class="wind"></p>
 
-                <div class="high-temp"></div>
+                <p class="high-temp"></p>
 
-                <div class="low-temp"></div>
-            </div>
+                <p class="low-temp"></p>
+
+                <button class="save" type="submit">Save for a Rainy Day?</button>
+            </section>
         </div>
+
+        <div class="saved">
+            <span><h2>Saved Kingdoms</h2></span>
+            <hr>
+
+            <div class="cards"></div>
+        </div>
+
     </body>
 
     <footer>
@@ -55,4 +65,5 @@
     </footer>
     
     <script src="weather.js"></script>
+    <script src="cards.js"></script>
 </html>
