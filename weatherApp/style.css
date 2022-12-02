@@ -25,11 +25,11 @@ body{
     grid-column: 1/4;
     grid-row: 1;
     text-align: center;
-    color: #6644BB;
-    text-shadow: -1px 1px 0 #F0E32D,
-				 1px 1px 0 #F0E32D,
-				 1px -1px 0 #F0E32D,
-				-1px -1px 0 #F0E32D;
+    color: #161223;
+    text-shadow: -1px 1px 5px #F0E32D,
+				 1px 1px 6px #F0E32D,
+				 1px -1px 8px #F0E32D,
+				-1px -1px 5px #F0E32D;
     margin-bottom: .6em;
 }
 
@@ -112,13 +112,15 @@ body{
 .cards{
     display: flex;
     flex-direction: column;
+    margin-left: 9.5em;
 }
 
 .card{
     display: flex;
     flex-direction: column;
+    margin-bottom: 1em;
     position: relative;
-    max-width: 100px;
+    max-width: 125px;
     background-color: #513696;
     color: #150E25;
     text-shadow: -1px 1px 0 #F0E32D,
@@ -187,10 +189,11 @@ footer{
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-left: 0;
     }
 
     .card{
-        max-width: 200px;
+        max-width: 175px;
         margin-bottom: 3em;
     }
     .delete{

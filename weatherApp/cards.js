@@ -1,21 +1,29 @@
 const cards = document.querySelector('.cards');
 
 
-let savedCities = [];
 
-const addCity = (ev)=> {
+let savedCities = JSON.parse(window.localStorage.getItem('city-list')) ?? [];
+for (city in savedCities) {
+    console.log(savedCities)
+    buildCards(city)
+};
+
+
+
+
+document.querySelector('.save').addEventListener('click',(ev)=> {
     ev.preventDefault();
     let city = {    
         Kingdom: document.querySelector('.bar').value
     }
     savedCities.push(city);
+    window.localStorage.setItem('city-list', JSON.stringify(savedCities) )
     document.querySelector('#form').reset();
     buildCards(city)
-}
+})
 
 function deleteCity() {}
 
-document.querySelector('.save').addEventListener('click', addCity)
 
 async function buildCards() {   
         const response = await Promise.all([fetch(`${url}${input}&units=imperial&appid=${key}`),]);

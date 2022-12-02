@@ -3,8 +3,9 @@ let url = 'https://api.openweathermap.org/data/2.5/weather?q='
 input = localStorage.quickCity || 'Tucson'
 
 
+
 window.addEventListener('load', () => {
-    quickCity() && savedCities()
+    quickCity()
 });
 
 
@@ -66,11 +67,11 @@ function render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) {
     
     location.innerText = fLocation
     type.innerHTML = `<u>${fType} Conditions</u>`
-    wind.innerHTML = `<strong>Wind Speed:</strong> <u>${Math.round(fWind)}mph</u>`
+    wind.innerHTML = `<strong>Wind Speed:</strong> <em>${Math.round(fWind)}mph</em>`
     temp.innerHTML = `<em>${Math.round(fTemp)}°F</em>` 
-    feelsLike.innerHTML = `<strong>Feels like:</strong> <u>${Math.round(fFeels)}°F</u>`
-    highTemp.innerHTML = `<strong>Daily High:</strong> <u>${Math.round(fHigh)}°F</u>`
-    minTemp.innerHTML = `<strong>Daily Low:</strong> <u>${Math.round(fMin)}°F</u>` 
+    feelsLike.innerHTML = `<strong>Feels like:</strong> <em>${Math.round(fFeels)}°F</em>`
+    highTemp.innerHTML = `<strong>Daily High:</strong> <em>${Math.round(fHigh)}°F</em>`
+    minTemp.innerHTML = `<strong>Daily Low:</strong> <em>${Math.round(fMin)}°F</em>` 
     save()
 }
 
