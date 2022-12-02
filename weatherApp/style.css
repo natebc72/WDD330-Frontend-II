@@ -117,16 +117,17 @@ body{
 
 .card{
     display: flex;
+    font-weight: 700;
     flex-direction: column;
     margin-bottom: 1em;
     position: relative;
     max-width: 125px;
     background-color: #513696;
-    color: #150E25;
-    text-shadow: -1px 1px 0 #F0E32D,
-				 1px 1px 0 #F0E32D,
-				 1px -1px 0 #F0E32D,
-				-1px -1px 0 #F0E32D;
+    color: #F0E32D;
+    text-shadow: -1px 2px 4px #161223,
+				 1px 2px 4px #161223,
+				 1px -1px 6px #161223,
+				-1px -1px 4px #161223;
     border: 2px solid #DBCE0F;
 }
 
