@@ -1,20 +1,19 @@
-let key = 'c15692945feb10ef84b935367d724b0b'
-let url = 'https://api.openweathermap.org/data/2.5/weather?q='
-input = localStorage.quickCity || 'Tucson'
-
-
+export const key = 'c15692945feb10ef84b935367d724b0b'
+export const url = 'https://api.openweathermap.org/data/2.5/weather?q='
+let input = localStorage.quickCity
 
 window.addEventListener('load', () => {
     quickCity()
-});
+})
 
 
-  document.querySelector('.submit').addEventListener('click', (e) => {
+document.querySelector('.submit').addEventListener('click', (e) => {
     e.preventDefault()
     document.querySelector('.location').innerText = 'Spoting...'
     input = document.querySelector('.bar').value
     quickSearch(input)
 })
+
 
 function save() {
     localStorage.quickCity = input
@@ -24,8 +23,8 @@ function quickCity() {
     input = localStorage.quickCity
     quickSearch()
 }
-  
-async function quickSearch() {   
+
+export default async function quickSearch() {   
     try {    
         const response = await Promise.all([fetch(`${url}${input}&units=imperial&appid=${key}`),
         ]);
@@ -41,6 +40,7 @@ async function quickSearch() {
         const fWind = weatherData[0].wind.speed 
 
         render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) 
+
     } catch (error) {
         console.error(error);
         document.querySelector('.location').innerHTML = '<em>Your lenses must be foggy!</em>'
@@ -74,8 +74,7 @@ function render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) {
     minTemp.innerHTML = `<strong>Daily Low:</strong> <em>${Math.round(fMin)}°F</em>` 
     save()
 }
-
-quickSearch()
+quickCity()
 
 
     
