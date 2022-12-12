@@ -1,91 +1,48 @@
-//Auth class which provides basic JWT based authentication for our app.
-// Requires: access to the makeRequest function
-import { makeRequest } from './authHelpers.js';
-
+import makeRequest from "./authHelpers.js";
 export default class Auth {
-  constructor(errorHandler) {
-    this.jwtToken = '';
-    this.user = {};
-    this.errors = errorHandler;
+  constructor() {
+    this.jwtToken = ''
+    this.user = {}
   }
 
   async login(callback) {
-    const password = document.getElementById('password');
-    const username = document.getElementById('username');
+    const password = document.getElementById('password')
+    const email = document.getElementById('email')
     const postData = {
-      email: username.value,
+      email: email.value,
       password: password.value
-    };
-    try {
-      const data = await makeRequest('login', 'POST', postData);
-      // a successful response...we have a token!  Store it since we will need to send it with every request to the API.
-      this.jwtToken = data.accessToken;
-      // let's get the user details as well and store them locally in the class
-      this.user = await this.getCurrentUser(username.value);
-      console.log(data);
+    }
 
-      // hide the login form.
-      hideLogin();
-      // clear the password
+    try {
+      let tokenResponse = await makeRequest('login', 'POST', postData)
+      this.jwtToken = tokenResponse.accessToken
+      let user = await this.getCurrentUser(email.value);
+      this.user = user[0]
+
+      document.getElementById('login').classList.add('hidden');
       password.value = '';
-      // clear any errors from the login process
-      this.errors.clearError();
-      // since we have a token let's go grab some data from the API
-      callback();
+
+      if (callback) {
+        callback()
+      }
     } catch (error) {
-      // if there were any errors display them
-      this.errors.handleError(error);
-      console.log(error);
+      console.log(error)
     }
   }
-  // uses the email of the currently logged in user to pull up the full user details for that user from the database
+
   async getCurrentUser(email) {
     try {
-      const data = await makeRequest(
-        'users?email=' + email,
-        'GET',
-        null,
-        this.jwtToken
-      );
-
-      console.log(data);
-      return data[0];
+      return makeRequest('users?email=' + email, 'GET', null, this.token)
     } catch (error) {
-      // if there were any errors display them
-      this.errors.handleError(error);
-
-      console.log(error);
-    }
-  }
-  async updateUser() {
-    // after logging in we pulled down the user from the api...including the id...we can use that to do our update.
-
-    this.user.age = 40;
-    try {
-      const result = await makeRequest(
-        'users/' + this.user.id,
-        'PUT',
-        this.user,
-        this.jwtToken
-      );
-      console.log('Update user:', result);
-    } catch (error) {
-      this.errors.handleError(error, showLogin);
+      console.log(error)
     }
   }
 
   set token(value) {
-    // we need this for the getter to work...but we don't want to allow setting the token through this so we are leaving it blank.
+
   }
+
   get token() {
-    return this.jwtToken;
+    return this.jwtToken
   }
-} // end auth class
-
-function showLogin() {
-  document.getElementById('login').classList.remove('hidden');
-}
-
-function hideLogin() {
-  document.getElementById('login').classList.add('hidden');
 }
