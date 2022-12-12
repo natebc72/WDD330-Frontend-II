@@ -75,6 +75,7 @@ function render(fLocation, fTemp, fType, fFeels, fHigh, fMin, fWind) {
     save()
 }
 quickCity()
+export {quickCity}
 
 
     
